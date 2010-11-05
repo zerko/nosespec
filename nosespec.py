@@ -25,6 +25,11 @@ class SpecPlugin(Plugin):
     def addFailure(self,test,err):
         self.messages[self.spec_name].append(Message(test.address()[-1].split('.')[-1], RED))
 
+    def addError(self,test,err):
+        self.messages[self.spec_name].append(Message(test.address()[-1].split('.')[-1], RED))
+
+
+
     def startContext(self, context):
         if inspect.ismodule(context):
             self.spec_name = False
