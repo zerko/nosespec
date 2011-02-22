@@ -34,8 +34,7 @@ class SpecPlugin(Plugin):
         if inspect.ismodule(context):
             self.spec_name = False
             return
-
-        self.spec_name = str(context).split('.')[-1] 
+        self.spec_name = context.__name__.split('.')[-1] 
         self.messages[self.spec_name] = list()
 
     def setOutputStream(self, stream):
